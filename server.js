@@ -10,10 +10,40 @@ app.use(morgan('common'));
 // router instances
 app.use('/blog-posts', blogPostsRouter);
 
-// app.get('/', (req, res) => res.send('Hello World!'));
+let server;
 
-// app.listen(3000, () => console.log('Blog app listening on port 3000!'));
+function runServer() {
+  const port = process.env.PORT || 8080;
+  return new Promise((resolve, reject) => {
+    server = app.listen(port, () => {
+      console.log(`Your app is listening on port ${port}`);
+      resolve(server);
+    }).on('error', err => {
+      reject(err)
+    });
+  });
+}
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
-});
+function closeServer() {
+  return new Promise((resolve, reject) => {
+    console.log('Closing server');
+    server.close(err => {
+      if (err) {
+        reject(err);
+
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+if (require.main === module) {
+  runServer().catch(err => console.error(err));
+};
+
+module.exports = { app, runServer, closeServer };
+
+// app.listen(process.env.PORT || 8080, () => {
+//   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
+// });
