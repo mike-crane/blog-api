@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: XQ8RN0sSTGsPFDP+X7wPUajYBPP2v9yyYV71zmxDnHgE9lLcauVtL+YjW8Z34HOxvYKraJgHRWrCIMwYdurEAvwZx9WyY976Z6SdUevEer4+mCyhfdQnygSOxWn/pWekn4EQFtuvObEbBci4QWNdZKt/fYDh9v9NbiUnG3dLDbrE78LtJdiwrYWR/IYfVySJ8dJaeKihTH82psmVmyznw30Jv+JgIdIPc+6stfByV6r2ZpfKL/KtBbWN1Fmx/YHgBoCP6J7HhKVA2U/cjKRI/p8OL4EYVjwFonbeFx4Xe2KOz3fw7LK2qbJ6CPovBmYi+UUXmyfx9qO+7eqBosoLAZdyOKsWa83Rxu3cGktr+KZOhWHbR+gpKHGHFUnPvRi/022jkZnw/8duXiPgcV/8oEWK1v7ajfuvEPwPJyloviks1IDJSXXbPcL2XWQYD0M54P/5MzZN6NXS5fUrMkP+Sw9EJQdM6H9lM/dLYQUX6Ua3DfqxpwibLbbYH2WmE1W6SYrtqLkEv11aDru27yh0E+oNGoQ0A8G23pxyAfMBB+R+9QCSzjSgn+lHBk7FhRHUDuGzaMwlpFP2DCNL3vHwVDjIrsJLb/1EGIQssmWw2nBdmzhYtJlp9n155hOAndGLabIyb/Kz/rzJZkdaYcmvjISqbOGTSo64wXFvwm1dAz8=
+  app: limitless-ocean-49494
+  on:
+    repo: mike-crane/blog-api
