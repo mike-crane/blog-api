@@ -23,7 +23,7 @@ describe('BlogPosts', function () {
       .get('/blog-posts')
       .then(function (res) {
 
-        res.should.have.status(200);
+        res.should.have.status(300);
         res.should.be.json;
 
         res.body.should.be.a('array');
